@@ -20,21 +20,31 @@ using CsharpShop;
 
 //Inizializzazione Variabili
 
+Console.WriteLine("----------- Shop -----------");
+Console.WriteLine("\nInserisci i dati del prodotto");
+
 //Codice
-Console.WriteLine("Inserisci il Codice prodotto: ");
-int mioCodice = int.Parse(Console.ReadLine());
+Random r = new Random();
+int mioCodice = r.Next(00000000,10000000);
 
 //Nome
-Console.WriteLine("Inserisci il Codice prodotto: ");
+Console.Write("Nome: ");
 string mioNome = (Console.ReadLine());
 
 //descrizione
-Console.WriteLine("Inserisci il Codice prodotto: ");
+Console.Write("Descrizione: ");
 string mioDescrizione = (Console.ReadLine());
 
 //prezzo
-Console.WriteLine("Inserisci il Codice prodotto: ");
+Console.Write("Prezzo: ");
 double mioPrezzo = double.Parse(Console.ReadLine());
 
+//categoria
+Console.Write("Categoria - [alimentari/Spezie/Carni/Altro]: ");
+string miaCategoria = Console.ReadLine().ToLower();
 
-Prodotto mioProdotto = new Prodotto(mioCodice, mioNome, mioDescrizione, mioPrezzo);
+Prodotto mioProdotto = new Prodotto(mioCodice, mioNome, mioDescrizione, mioPrezzo, miaCategoria);
+
+
+
+

@@ -12,19 +12,85 @@ namespace CsharpShop
         private string nome;
         private string descrizione;
         private double prezzo;
+        private string categoria;
         private double iva = 22;
 
-        public Prodotto(int codice, string nome, string descrizione, double prezzo)
+        public Prodotto(int codice, string nome, string descrizione, double prezzo, string categoria)
         {
             this.codice = codice;
-            this.nome = nome; 
+            this.nome = nome;
             this.descrizione = descrizione;
-            this.prezzo = prezzo;   
+            this.prezzo = prezzo;
+            this.categoria = categoria;
+            ControlloCategoria();
         }
 
         //--------------- Metodi ----------------
 
+        public void StampaPrezzoBase()
+        {
+            Console.WriteLine("Prezzo Prodotto: " + prezzo + " (Senza Iva)");
+        }
 
+
+
+        public void StampaPrezzoConIva()
+        {
+            double tasse;
+            tasse = (prezzo * iva) / 100 ;
+            prezzo = prezzo + tasse;
+            Console.WriteLine("Prezzo Prodotto: " + prezzo + " (Iva inclusa)");
+        }
+
+        public void StampaNomeProdotto()
+        {
+            Console.WriteLine("prodotto: " + nome + " di Codice: " + codice);
+        }
+
+        public void ControlloCategoria() 
+        {
+            bool ImputCorretto = false;
+
+            while (ImputCorretto == false)
+            {
+                switch (categoria)
+                {
+                    case "alimentari":
+                        //Iva al 4%
+                        SetIva(4);
+                        ImputCorretto = true;
+                        break;
+                    case "spezie":
+                        //Iva al 5%
+                        ImputCorretto = true;
+                        SetIva(5);
+                        break;
+                    case "carni":
+                        //Iva al 10%
+                        ImputCorretto = true;
+                        SetIva(10);
+                        break;
+                    case "altro":
+                        //Iva al 22%
+                        ImputCorretto = true;
+                        break;
+                    default:
+                        Console.WriteLine("Imput non valido, reinserisci la categoria giusta");
+                        Console.Write("Categoria - [alimentari/Spezie/Carni/altro]: ");
+                        categoria = Console.ReadLine();
+                        break;
+                }
+            }
+        }
+
+        public void StampaProdotto()
+        {
+            Console.WriteLine("----- Prodotto -----");
+            Console.WriteLine("Codice: " + ApprossimaCodice8cifre());
+            Console.WriteLine("Nome: " + nome);
+            Console.WriteLine("Descrizione: " + descrizione);
+            Console.WriteLine("Prezzo: " + prezzo + " €");
+        }
 
         //------------- Fine Metodi -------------
 
@@ -56,13 +122,20 @@ namespace CsharpShop
             return iva;
         }
 
+        public string GetCategoria()
+        {
+            return categoria;
+        }
+
         //------------- Fine Metodi Getter -------------
 
         //------------- Metodi Setter -------------
 
-        public void SetCodice(int codice)
+        private string ApprossimaCodice8cifre()
         {
-             this.codice = codice;
+            string MioCodice = codice.ToString("D8");
+            //Console.WriteLine("{0,22} {1,22}", codice.ToString("D8"));
+            return MioCodice;
         }
 
         public void SetNome(string nome)
@@ -78,6 +151,16 @@ namespace CsharpShop
         public void SetPrezzo(double prezzo)
         {
             this.prezzo = prezzo;
+        }
+
+        public void SetCategoria(string categoria)
+        {
+            this.categoria = categoria;
+        }
+
+        public void SetIva(int iva)
+        {
+            this.iva = iva;
         }
 
 
