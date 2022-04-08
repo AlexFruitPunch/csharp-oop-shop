@@ -18,3 +18,23 @@ stampandone il loro contenuto. */
 
 using CsharpShop;
 
+//Inizializzazione Variabili
+
+//Codice
+Console.WriteLine("Inserisci il Codice prodotto: ");
+int mioCodice = int.Parse(Console.ReadLine());
+
+//Nome
+Console.WriteLine("Inserisci il Codice prodotto: ");
+string mioNome = (Console.ReadLine());
+
+//descrizione
+Console.WriteLine("Inserisci il Codice prodotto: ");
+string mioDescrizione = (Console.ReadLine());
+
+//prezzo
+Console.WriteLine("Inserisci il Codice prodotto: ");
+double mioPrezzo = double.Parse(Console.ReadLine());
+
+
+Prodotto mioProdotto = new Prodotto(mioCodice, mioNome, mioDescrizione, mioPrezzo);

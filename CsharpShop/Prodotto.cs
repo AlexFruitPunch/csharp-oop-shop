@@ -12,15 +12,14 @@ namespace CsharpShop
         private string nome;
         private string descrizione;
         private double prezzo;
-        private double iva;
+        private double iva = 22;
 
-        public Prodotto(int codice, string nome, string descrizione, double prezzo, double iva)
+        public Prodotto(int codice, string nome, string descrizione, double prezzo)
         {
             this.codice = codice;
             this.nome = nome; 
             this.descrizione = descrizione;
             this.prezzo = prezzo;   
-            this.iva = iva;
         }
 
         //--------------- Metodi ----------------
@@ -81,10 +80,6 @@ namespace CsharpShop
             this.prezzo = prezzo;
         }
 
-        public void SetIva(double iva)
-        {
-            this.iva = iva;
-        }
 
         //------------- Fine Metodi Setter -------------
     }
