@@ -22,5 +22,70 @@ namespace CsharpShop
             this.prezzo = prezzo;   
             this.iva = iva;
         }
+
+        //--------------- Metodi ----------------
+
+
+
+        //------------- Fine Metodi -------------
+
+
+        //------------- Metodi Getter -------------
+
+        public int GetCodice()
+        {
+            return codice;
+        }
+
+        public string GetNome()
+        {
+            return nome;
+        }
+
+        public string GetDescrizione()
+        {
+            return descrizione;
+        }
+
+        public double GetPrezzo()
+        {
+            return prezzo;
+        }
+
+        public double GetIva()
+        {
+            return iva;
+        }
+
+        //------------- Fine Metodi Getter -------------
+
+        //------------- Metodi Setter -------------
+
+        public void SetCodice(int codice)
+        {
+             this.codice = codice;
+        }
+
+        public void SetNome(string nome)
+        {
+            this.nome = nome;
+        }
+
+        public void SetDescrizione(string descrizione)
+        {
+            this.descrizione = descrizione;
+        }
+
+        public void SetPrezzo(double prezzo)
+        {
+            this.prezzo = prezzo;
+        }
+
+        public void SetIva(double iva)
+        {
+            this.iva = iva;
+        }
+
+        //------------- Fine Metodi Setter -------------
     }
 }
