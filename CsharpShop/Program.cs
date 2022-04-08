@@ -47,7 +47,6 @@ string miaCategoria = Console.ReadLine().ToLower();
 
 Prodotto mioProdotto = new Prodotto(mioCodice, mioNome, mioDescrizione, mioPrezzo, miaCategoria);
 
-mioProdotto.StampaProdotto();
 
 Console.WriteLine("------ Prodotto 2 ------");
 
@@ -73,7 +72,7 @@ string miaCategoria2 = Console.ReadLine().ToLower();
 
 Prodotto mioProdotto2 = new Prodotto(mioCodice2, mioNome2, mioDescrizione2, mioPrezzo2, miaCategoria2);
 
-mioProdotto2.StampaProdotto();
+
 
 Console.WriteLine("------ Prodotto 3 ------");
 
@@ -99,6 +98,46 @@ string miaCategoria3 = Console.ReadLine().ToLower();
 
 Prodotto mioProdotto3 = new Prodotto(mioCodice3, mioNome3, mioDescrizione3, mioPrezzo3, miaCategoria3);
 
+
+//Stampa dei 3 prodotti
+
+mioProdotto.StampaProdotto();
+mioProdotto2.StampaProdotto();
 mioProdotto3.StampaProdotto();
 
+Console.WriteLine("Vuoi vedere il prezzo del prodotto? [si/no]");
+string scelta = Console.ReadLine().ToLower();
+bool imputcorretto = false;
 
+while (imputcorretto == false) { 
+    if(scelta == "si")
+    {
+        imputcorretto=true;
+        int numeroDelProdotto;
+        Console.WriteLine("quale dei 3 prodotti vuoi vedere ? [1/2/3]");
+        numeroDelProdotto = int.Parse(Console.ReadLine());
+        switch (numeroDelProdotto)
+        {
+            case 1:
+                mioProdotto.StampaPrezzoConIva();
+                break;
+            case 2:
+                mioProdotto2.StampaPrezzoConIva();
+                break;
+            case 3:
+                mioProdotto3.StampaPrezzoConIva();
+                break;
+            default:
+                Console.WriteLine("imput errato");
+                break;
+        }
+    } else if(scelta == "no")
+    {
+        imputcorretto = true;
+        Console.WriteLine("Grazie per aver scelto il nostro programma");
+    }
+    else
+    {
+        Console.WriteLine("imput errato, ti prego di inserire un imput corretto");
+    }
+}

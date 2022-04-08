@@ -32,8 +32,6 @@ namespace CsharpShop
             Console.WriteLine("Prezzo Prodotto: " + prezzo + " (Senza Iva)");
         }
 
-
-
         public void StampaPrezzoConIva()
         {
             double tasse;
@@ -85,11 +83,11 @@ namespace CsharpShop
 
         public void StampaProdotto()
         {
-            Console.WriteLine("----- Prodotto -----");
+            Console.WriteLine("\n----- Prodotto -----");
             Console.WriteLine("Codice: " + ApprossimaCodice8cifre());
             Console.WriteLine("Nome: " + nome);
             Console.WriteLine("Descrizione: " + descrizione);
-            Console.WriteLine("Prezzo: " + prezzo + " €");
+            Console.WriteLine("Prezzo: " + GetPrezzoConIva() + " \u20AC");    /*"\u20AC" è un codice esadecimale che permette di stampare il simbolo di "€" */
         }
 
         //------------- Fine Metodi -------------
@@ -127,6 +125,14 @@ namespace CsharpShop
             return categoria;
         }
 
+        public double GetPrezzoConIva()
+        {
+            double tasse;
+            tasse = (prezzo * iva) / 100;
+            prezzo = prezzo + tasse;
+            return prezzo;
+        }
+
         //------------- Fine Metodi Getter -------------
 
         //------------- Metodi Setter -------------
@@ -162,7 +168,6 @@ namespace CsharpShop
         {
             this.iva = iva;
         }
-
 
         //------------- Fine Metodi Setter -------------
     }
